@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import General from './components/General';
 import Overview from './components/Overview';
 import Education from './components/Education';
+import Experience from './components/Experience';
 
 class App extends Component {
   constructor() {
@@ -116,6 +117,7 @@ class App extends Component {
               addEducation={this.addEducation}
               fieldCount={this.state.fieldCount}
             />
+            <Experience legend="Experience" />
             <button type="submit">Submit</button>
           </form>
           <Overview
