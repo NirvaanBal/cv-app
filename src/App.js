@@ -20,14 +20,20 @@ class App extends Component {
 
   submitForm(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let phone = document.getElementById('phone');
 
     this.setState({
-      user: { name, email, phone },
+      user: { name: name.value, email: email.value, phone: phone.value },
     });
+
+    name.value = '';
+    email.value = '';
+    phone.value = null;
   }
+
+  editInfo() {}
 
   render() {
     const { name, email, phone } = this.state.user;
@@ -42,7 +48,12 @@ class App extends Component {
             <General />
             <button type="submit">Submit</button>
           </form>
-          <Overview name={name} email={email} phone={phone} />
+          <Overview
+            name={name}
+            email={email}
+            phone={phone}
+            editInfo={this.editInfo}
+          />
         </div>
       </>
     );

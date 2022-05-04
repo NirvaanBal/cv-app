@@ -11,6 +11,9 @@ class Overview extends Component {
         <h2>{this.props.name}</h2>
         <p>{this.props.email}</p>
         <p>{this.props.phone}</p>
+        <button id="edit" onClick={this.props.editInfo}>
+          Edit
+        </button>
       </div>
     );
   }
