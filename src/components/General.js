@@ -19,7 +19,14 @@ class General extends Component {
         </div>
         <div className="form-control">
           <label htmlFor="phone">Phone</label>
-          <input type="number" name="phone" id="phone" required />
+          <input
+            type="number"
+            name="phone"
+            id="phone"
+            min="1000000"
+            max="99999999999"
+            required
+          />
         </div>
       </fieldset>
     );
