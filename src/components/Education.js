@@ -32,7 +32,9 @@ class Education extends Component {
             </div>
           );
         })}
-        <button onClick={this.props.addEducation}>Add More</button>
+        <button onClick={this.props.addEducation} type="button">
+          Add More
+        </button>
       </fieldset>
     );
   }
