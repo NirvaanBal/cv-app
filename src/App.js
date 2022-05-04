@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import General from './components/General';
 import Overview from './components/Overview';
+import Education from './components/Education';
 
 class App extends Component {
   constructor() {
@@ -63,7 +64,8 @@ class App extends Component {
         </div>
         <div className="content">
           <form onSubmit={this.submitForm} noValidate>
-            <General />
+            <General legend="General" />
+            <Education legend="Education" />
             <button type="submit">Submit</button>
           </form>
           <Overview

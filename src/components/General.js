@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
 class General extends Component {
+  constructor(props) {
+    super();
+  }
+
   render() {
     return (
       <fieldset>
-        <legend>General</legend>
+        <legend>{this.props.legend}</legend>
         <div className="form-control">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" autoFocus required />
