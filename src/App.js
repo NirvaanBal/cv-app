@@ -75,11 +75,21 @@ class App extends Component {
 
   editForm() {
     const { name, email, phone } = this.state.user;
+    const { education } = this.state;
     const fields = this.inputFields();
 
     fields.nameField.value = name;
     fields.emailField.value = email;
     fields.phoneField.value = phone;
+    fields.educationFields.forEach((field, index) => {
+      const course = field.querySelector(`#degree${index + 1}`);
+      const school = field.querySelector(`#school${index + 1}`);
+      const year = field.querySelector(`#year${index + 1}`);
+
+      course.value = education[index].course;
+      school.value = education[index].school;
+      year.value = +education[index].year;
+    });
   }
 
   addEducation() {
