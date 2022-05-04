@@ -15,25 +15,43 @@ class App extends Component {
       },
     };
 
+    this.inputFields = this.inputFields.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.editForm = this.editForm.bind(this);
+  }
+
+  inputFields() {
+    const nameField = document.getElementById('name');
+    const emailField = document.getElementById('email');
+    const phoneField = document.getElementById('phone');
+
+    return { nameField, emailField, phoneField };
   }
 
   submitForm(e) {
     e.preventDefault();
-    let name = document.getElementById('name');
-    let email = document.getElementById('email');
-    let phone = document.getElementById('phone');
-
+    const fields = this.inputFields();
     this.setState({
-      user: { name: name.value, email: email.value, phone: phone.value },
+      user: {
+        name: fields.nameField.value,
+        email: fields.emailField.value,
+        phone: fields.phoneField.value,
+      },
     });
 
-    name.value = '';
-    email.value = '';
-    phone.value = null;
+    fields.nameField.value = '';
+    fields.emailField.value = '';
+    fields.phoneField.value = null;
   }
 
-  editInfo() {}
+  editForm() {
+    const { name, email, phone } = this.state.user;
+    const fields = this.inputFields();
+
+    fields.nameField.value = name;
+    fields.emailField.value = email;
+    fields.phoneField.value = phone;
+  }
 
   render() {
     const { name, email, phone } = this.state.user;
@@ -52,7 +70,7 @@ class App extends Component {
             name={name}
             email={email}
             phone={phone}
-            editInfo={this.editInfo}
+            editForm={this.editForm}
           />
         </div>
       </>
