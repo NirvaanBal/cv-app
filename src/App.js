@@ -63,7 +63,14 @@ class App extends Component {
     fields.nameField.value = '';
     fields.emailField.value = '';
     fields.phoneField.value = null;
-    fields.educationFields = [];
+    fields.educationFields.forEach((field, index) => {
+      const course = field.querySelector(`#degree${index + 1}`);
+      const school = field.querySelector(`#school${index + 1}`);
+      const year = field.querySelector(`#year${index + 1}`);
+      course.value = '';
+      school.value = '';
+      year.value = null;
+    });
   }
 
   editForm() {
