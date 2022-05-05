@@ -18,6 +18,7 @@ class App extends Component {
       education: [],
       fieldCount: [1],
       counter: 2,
+      experience: [],
     };
 
     this.inputFields = this.inputFields.bind(this);
@@ -31,14 +32,23 @@ class App extends Component {
     const emailField = document.getElementById('email');
     const phoneField = document.getElementById('phone');
     const educationFields = document.querySelectorAll('.education-field');
+    const experienceFields = document.querySelectorAll('.experience-field');
 
-    return { nameField, emailField, phoneField, educationFields };
+    return {
+      nameField,
+      emailField,
+      phoneField,
+      educationFields,
+      experienceFields,
+    };
   }
 
   submitForm(e) {
+    const form = document.querySelector('form');
     e.preventDefault();
     const fields = this.inputFields();
     const eduArr = [];
+    const expArr = [];
 
     fields.educationFields.forEach((field, index) => {
       const course = field.querySelector(`#degree${index + 1}`);
@@ -52,31 +62,36 @@ class App extends Component {
       });
     });
 
+    fields.experienceFields.forEach((field, index) => {
+      const job = field.querySelector(`#job${index + 1}`);
+      const company = field.querySelector(`#company${index + 1}`);
+      const from = field.querySelector(`#from${index + 1}`);
+      const to = field.querySelector(`#to${index + 1}`);
+
+      expArr.push({
+        job: job.value,
+        company: company.value,
+        from: from.value,
+        to: to.value,
+      });
+    });
+
     this.setState({
       user: {
         name: fields.nameField.value,
         email: fields.emailField.value,
         phone: fields.phoneField.value,
       },
-      education: [...eduArr],
+      education: eduArr,
+      experience: expArr,
     });
 
-    fields.nameField.value = '';
-    fields.emailField.value = '';
-    fields.phoneField.value = null;
-    fields.educationFields.forEach((field, index) => {
-      const course = field.querySelector(`#degree${index + 1}`);
-      const school = field.querySelector(`#school${index + 1}`);
-      const year = field.querySelector(`#year${index + 1}`);
-      course.value = '';
-      school.value = '';
-      year.value = null;
-    });
+    form.reset();
   }
 
   editForm() {
     const { name, email, phone } = this.state.user;
-    const { education } = this.state;
+    const { education, experience } = this.state;
     const fields = this.inputFields();
 
     fields.nameField.value = name;
@@ -90,6 +105,17 @@ class App extends Component {
       course.value = education[index].course;
       school.value = education[index].school;
       year.value = +education[index].year;
+    });
+    fields.experienceFields.forEach((field, index) => {
+      const job = field.querySelector(`#job${index + 1}`);
+      const company = field.querySelector(`#company${index + 1}`);
+      const from = field.querySelector(`#from${index + 1}`);
+      const to = field.querySelector(`#to${index + 1}`);
+
+      job.value = experience[index].job;
+      company.value = experience[index].company;
+      from.value = +experience[index].from;
+      to.value = +experience[index].to;
     });
   }
 
@@ -123,6 +149,7 @@ class App extends Component {
           <Overview
             general={general}
             education={this.state.education}
+            experience={this.state.experience}
             editForm={this.editForm}
           />
         </div>

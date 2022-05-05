@@ -14,7 +14,7 @@ class Experience extends Component {
 
   addExperience() {
     this.setState({
-      fields: [...this.state.fields, this.state.counter],
+      fields: this.state.fields.concat(this.state.counter),
       counter: this.state.counter + 1,
     });
   }

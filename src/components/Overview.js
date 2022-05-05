@@ -24,6 +24,18 @@ class Overview extends Component {
             );
           })}
         </div>
+        <div className="exp">
+          {this.props.experience.map((job, index) => {
+            return (
+              <div className="job" key={index}>
+                <p>{job.job}</p>
+                <p>{job.company}</p>
+                <p>{job.from}</p>
+                <p>{job.to}</p>
+              </div>
+            );
+          })}
+        </div>
         <button type="button" id="edit" onClick={this.props.editForm}>
           Edit
         </button>
