@@ -41,8 +41,10 @@ class App extends Component {
   }
 
   submitForm(e) {
-    const form = document.querySelector('form');
     e.preventDefault();
+    const form = document.querySelector('form');
+    const overview = document.querySelector('.overview');
+    overview.style.display = 'block';
     const fields = this.inputFields();
     const eduArr = [];
     const expArr = [];
@@ -84,9 +86,12 @@ class App extends Component {
     });
 
     form.reset();
+    form.style.display = 'none';
   }
 
   editForm() {
+    const form = document.querySelector('form');
+    form.style.display = 'block';
     const { name, email, phone } = this.state.user;
     const { education, experience } = this.state;
     const fields = this.inputFields();

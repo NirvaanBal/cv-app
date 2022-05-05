@@ -16,18 +16,6 @@ class Overview extends Component {
           <p>{email}</p>
           <p>{phone}</p>
         </div>
-        <h3>Education</h3>
-        <div className="edu">
-          {this.props.education.map((course, index) => {
-            return (
-              <div className="course" key={index}>
-                <h4>{course.course}</h4>
-                <p>{course.school}</p>
-                <p>{course.year}</p>
-              </div>
-            );
-          })}
-        </div>
         <h3>Experience</h3>
         <div className="exp">
           {this.props.experience.map((job, index) => {
@@ -39,6 +27,18 @@ class Overview extends Component {
                   <p>From {job.from}</p>
                   <p>To {job.to}</p>
                 </div>
+              </div>
+            );
+          })}
+        </div>
+        <h3>Education</h3>
+        <div className="edu">
+          {this.props.education.map((course, index) => {
+            return (
+              <div className="course" key={index}>
+                <h4>{course.course}</h4>
+                <p>{course.school}</p>
+                <p>{course.year}</p>
               </div>
             );
           })}
