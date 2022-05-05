@@ -1,0 +1,43 @@
+h2 {
+  font-size: 30px;
+}
+
+.e-p {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.edu,
+.exp {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 10px;
+}
+
+.course,
+.job {
+  border: solid 2px #000;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.f-t {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+#edit {
+  margin: 20px 0;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+}
