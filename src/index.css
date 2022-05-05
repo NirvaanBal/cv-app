@@ -1,9 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand');
 
 * {
   font-family: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-  font-family: 'Radio Canada', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  width: 600px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+fieldset {
+  padding: 20px;
+  margin-top: 10px;
+  border: solid 2px #000;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+legend {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0 5px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 15px;
+  border: solid 2px gray;
+  border-radius: 5px;
+}
+
+input:focus,
+input:hover,
+button:focus,
+button:hover {
+  border-color: #000;
+}
+
+button {
+  cursor: pointer;
+}
+
+button[type='submit'] {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  font-weight: bold;
 }
