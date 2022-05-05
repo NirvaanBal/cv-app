@@ -3,13 +3,27 @@ import React, { Component } from 'react';
 class Education extends Component {
   constructor(props) {
     super();
+
+    this.state = {
+      counter: 2,
+      fields: [1],
+    };
+
+    this.addEducation = this.addEducation.bind(this);
+  }
+
+  addEducation() {
+    this.setState({
+      fields: this.state.fields.concat(this.state.counter),
+      counter: this.state.counter + 1,
+    });
   }
 
   render() {
     return (
       <fieldset>
         <legend>{this.props.legend}</legend>
-        {this.props.fieldCount.map((field, index) => {
+        {this.state.fields.map((field, index) => {
           return (
             <div className="education-field" key={index}>
               <div className="form-control">
@@ -32,7 +46,7 @@ class Education extends Component {
             </div>
           );
         })}
-        <button onClick={this.props.addEducation} type="button">
+        <button onClick={this.addEducation} type="button">
           Add More
         </button>
       </fieldset>

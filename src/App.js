@@ -16,15 +16,12 @@ class App extends Component {
         phone: null,
       },
       education: [],
-      fieldCount: [1],
-      counter: 2,
       experience: [],
     };
 
     this.inputFields = this.inputFields.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.editForm = this.editForm.bind(this);
-    this.addEducation = this.addEducation.bind(this);
   }
 
   inputFields() {
@@ -119,13 +116,6 @@ class App extends Component {
     });
   }
 
-  addEducation() {
-    this.setState({
-      fieldCount: this.state.fieldCount.concat(this.state.counter),
-      counter: this.state.counter + 1,
-    });
-  }
-
   render() {
     const { name, email, phone } = this.state.user;
     const general = { name, email, phone };
@@ -138,11 +128,7 @@ class App extends Component {
         <div className="content">
           <form onSubmit={this.submitForm} noValidate>
             <General legend="General" />
-            <Education
-              legend="Education"
-              addEducation={this.addEducation}
-              fieldCount={this.state.fieldCount}
-            />
+            <Education legend="Education" />
             <Experience legend="Experience" />
             <button type="submit">Submit</button>
           </form>
