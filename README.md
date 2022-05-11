@@ -1,6 +1,6 @@
 # CV Prototype
 
-A dumb kid of LinkedIn or simply put; a CV generator app.
+A dumb kid of LinkedIn or simply put; a CV generator app. [Live here](https://nirvaanbal.github.io/cv-app/).
 
 ## Tech Stack
 
